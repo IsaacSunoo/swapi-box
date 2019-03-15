@@ -5,7 +5,8 @@ class People extends Component {
   constructor() {
     super();
     this.state = {
-      characters: []
+      characters: [],
+      isLoading: true
     }
   }
 
@@ -13,21 +14,37 @@ class People extends Component {
     const url = 'https://swapi.co/api/people/';
     fetch(url)
       .then(response => response.json())
-      .then(characters => this.setState({ characters: characters.results }))
+      .then(characters => this.fetchCharData(characters.results))
+      .then(characters => this.setState({ characters, isLoading: false }))
       .catch(err => { throw new Error(err); })
   }
 
+  fetchCharData = (charactersArr) => {
+    const unresolvedPromises = charactersArr.map(person => {
+      return Promise.all([fetch(person.species[0])
+        .then(response => response.json())
+        .then(({ name, language }) => ({ name: person.name, language, species: name }))
+        , fetch(person.homeworld)
+          .then(response => response.json())
+          .then(({name, population}) => ({ homeworld: name, homeworldPopulation: population }) )
+    ])
+    })
+    return Promise.all(unresolvedPromises)
+      .then(response => response.map(character => {
+        return Object.assign({}, character[0], character[1])
+            }));
+  }
+
   render() {
-    const { characters } = this.state;
-    console.log('Characters: ', characters);
+    const { characters, isLoading } = this.state;
+    // console.log('Characters: ', characters);
 
     const displayCharacters = characters.map(character => {
-      return <PersonCard key={character.name} character={character} />;
+      return <PersonCard key={character.name} {...character} />;
     })
+
     return (
-      <div>
-        {displayCharacters}
-      </div>
+        isLoading ? (<div>...isLoading</div>) : (< div className = 'character-card-container' > { displayCharacters }</div>)
     )
   }
 }

@@ -1,0 +1,60 @@
+.character-card {
+  background-color: #FFF;
+  border-radius: 15px;
+  border: 2px solid gainsboro;
+  box-sizing: content-box;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  display: grid;
+  height: 100px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  transform: perspective(1px) translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  width: 200px;
+}
+
+.card-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(243, 238, 238, 0);
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+
+  &:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 94%;
+    left: 8%;
+    height: 10px;
+    width: 84%;
+    opacity: 0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.911) 0%, rgba(248, 240, 240, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.911) 0%, (248, 240, 240, 0) 80%);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform, opacity;
+    transition-property: transform, opacity;
+  }
+
+  &:hover, &:focus, &:active {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+
+  &:hover:before, &:focus:before, &:active:before {
+    opacity: 1;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+}

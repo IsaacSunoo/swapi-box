@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import FilmInfo from './components/FilmInfo/FilmInfo';
 import Header from './components/Header/Header';
 import InfoContainer from './components/InfoContainer/InfoContainer';
-import People from './components/People/People';
-import Planets from './components/Planets/Planets';
-import Vehicles from './components/Vehicles/Vehicles';
+// import People from './components/People/People';
+// import Planets from './components/Planets/Planets';
+// import Vehicles from './components/Vehicles/Vehicles';
 
 class App extends Component {
   constructor() {
@@ -46,14 +46,14 @@ class App extends Component {
       <div onClick={this.hideFilmIntro} className='app-container'>
         {
           filmIntro === true &&
-          <FilmInfo starWarsFilm={starWarsFilm} hideIntro={this.hideFilmIntro} />
+          <FilmInfo starWarsFilm={starWarsFilm} />
         }
         <div style={displayIntro}>
           <Header />
           <InfoContainer starWarsFilm={starWarsFilm} />
-          <People />
+          {/* <People />
           <Planets />
-          <Vehicles />
+          <Vehicles /> */}
         </div>
       </div>
     );

@@ -9,6 +9,7 @@ class InfoContainer extends Component {
             favorites: []
         }
     }
+
     render() {
         const { favorites } = this.state;
 
