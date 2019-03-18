@@ -1,16 +1,72 @@
 .header {
     color: #ffff00;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     background-image: url(../src/images/outerSpace.jpg);
     background-size: cover;
-    height: 100px;
+    height: 200px;
+    margin: 10px;
+
+    h2 {
+        color: #FFF;
+        letter-spacing: 10px;
+        margin: 0px;
+
+        span {
+            display: inline-block;
+            animation: letters 4s ease-out forwards;
+        }
+    }
+
+    .star-title {
+        animation: star 4s ease-out forwards;
+    }
+
+    .wars-title {
+        animation: wars 4s ease-out forwards;
+    }
 }
 
-// .header-favorites {
-//     display: flex;
-//     justify-content: flex-end;
-// }
+@keyframes star {
+    0% {
+        opacity: 0;
+        transform: scale(1.5) translateY(-.075em);
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: scale(1);
+        transform: scale(1);
+    }
+}
 
+@keyframes wars {
+    0% {
+        opacity: 0;
+        transform: scale(1.5) translateY(.5em);
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes letters {
+    0%, 30% {
+        opacity: 0;
+        transform: rotateY(90deg);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotateY(0);
+        opacity: 1;
+    }
+}
 

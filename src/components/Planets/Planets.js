@@ -42,7 +42,7 @@ class Planets extends Component {
     })
 
     return (
-      isLoading ? (<div><img src='https://cdn.dribbble.com/users/817492/screenshots/2499676/kyloren_lightsaber.gif' alt='loading gif'></img></div>) : (<div className='planet-card-container' >{displayPlanets}</div>)
+      isLoading ? (<div className='center-image'><img src='https://media.giphy.com/media/TCS6qvKbfxcOI/giphy.gif' alt='loading gif' className='loading-screen'></img></div>) : (<div className='planet-card-container' >{displayPlanets}</div>)
     )
   }
 }

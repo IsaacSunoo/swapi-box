@@ -1,5 +1,7 @@
 .character-card {
-@include card-design(#0B03B8, 100px);
+@include card-design(#0B03B8, 130f2px);
+// font-family: $mainFont;
+// font-weight: 700;
 }
 
 .fa-star {
