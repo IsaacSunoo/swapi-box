@@ -1,8 +1,13 @@
+@import './variables';
+@import './mixins';
 @import './app';
 @import './components/FilmInfo/filmInfo';
 @import './components/Header/header';
 @import './components/People/people';
-@import './components/People/personCard';
+@import './components/PeopleCard/personCard';
 @import './components/Planets/planets';
+@import './components/PlanetCard/planetCard';
 @import './components/Vehicles/vehicles';
+@import './components/VehicleCard/vehicleCard';
 @import './components/InfoContainer/infoContainer';
+@import './components/Favorites/favorites';

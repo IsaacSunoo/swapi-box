@@ -1,0 +1,28 @@
+@mixin card-design($backColor, $cardHeight) {
+  background-color: $backColor;
+  border-radius: 15px;
+  border: 2px solid gainsboro;
+  box-sizing: content-box;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  color: #FFF;
+  display: grid;
+  height: $cardHeight;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  transform: perspective(1px) translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  width: 200px;
+}
+
+@mixin lightsaber($color){
+  background:mix($color,#fff,10%);
+  box-shadow:$color 0px 0px 0px 2px;
+  &:hover {
+    box-shadow:$color 0px 0px 20px 2px;
+    text-shadow:$color 0px 0px 6px,$color 0px 0px 10px;
+  }
+}

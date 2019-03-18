@@ -9,6 +9,7 @@ class Film extends Component {
         <div className='gradient-container'></div>
         <div className='movie-info'>
           <h1>{starWarsFilm.title} </h1>
+          <h3>{starWarsFilm.release_date}</h3>
           <p className='film-info'>{starWarsFilm.opening_crawl}</p>
         </div>
       </div>

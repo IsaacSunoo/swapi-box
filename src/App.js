@@ -40,7 +40,7 @@ class App extends Component {
   render() {
     const { starWarsFilm, filmIntro } = this.state;
     const displayIntro = filmIntro ? { display: 'none' } : {};
-    console.log('state', starWarsFilm);
+    // console.log('state', starWarsFilm);
 
     return (
       <div onClick={this.hideFilmIntro} className='app-container'>

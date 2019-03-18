@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PersonCard from './PersonCard';
+import PersonCard from '../PeopleCard/PersonCard';
 
 class People extends Component {
   constructor() {
@@ -37,14 +37,13 @@ class People extends Component {
 
   render() {
     const { characters, isLoading } = this.state;
-    // console.log('Characters: ', characters);
 
     const displayCharacters = characters.map(character => {
-      return <PersonCard key={character.name} {...character} />;
+      return <PersonCard key={character.name} {...character} addRemoveFavorite={this.props.addRemoveFavorite}/>;
     })
 
     return (
-        isLoading ? (<div>...isLoading</div>) : (< div className = 'character-card-container' > { displayCharacters }</div>)
+      isLoading ? (<div><img src='https://cdn.dribbble.com/users/817492/screenshots/2499676/kyloren_lightsaber.gif' alt='loading gif'></img></div>) : (< div className = 'character-card-container' > { displayCharacters }</div>)
     )
   }
 }
